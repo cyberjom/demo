@@ -5,7 +5,7 @@ set :pty,             true
 set :use_sudo,        false
 set :application,     'demo'
 set :deploy_user,     'deploy'
-set :deploy_to, "/content/www/#{fetch(:application)}"
+set :deploy_to,       "/content/www/#{fetch(:application)}"
 
 # setup repo details
 set :repo_url,        'git@github.com:cyberjom/demo.git'
@@ -14,7 +14,7 @@ server '10.2.1.74', user: 'root', port: 22, roles: [:web, :app, :db], primary: t
 # set :ssh_options,     { forward_agent: true, keys: %w(~/.ssh/id_rsa.pub) }
 
 ## Linked Files & Directories (Default None):
-set :linked_files, %w{config/database.yml}
+set :linked_files, %w{config/database.yml config/secrets.yml}
 set :linked_dirs,  %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
 ## Puma 
